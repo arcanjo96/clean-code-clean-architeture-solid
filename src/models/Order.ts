@@ -1,6 +1,6 @@
-import { Cpf } from "./Cpf";
-import { Coupon } from "./interfaces/Coupon";
-import { OrderNotification } from "./interfaces/OrderNotification";
+import { Coupon } from "../interfaces/Coupon";
+import { OrderNotification } from "../interfaces/OrderNotification";
+import { Cpf } from "../validators/Cpf";
 import { Item } from "./Item";
 
 class Order {
@@ -37,7 +37,7 @@ class Order {
         return true;
     }
 
-    public checkOrder(): void {
+    private checkOrder(): void {
         if (!this.cpf.validate()) {
             this.orderNotifications.push({
                 type: 'ERROR',

@@ -1,4 +1,4 @@
-import { Validator } from "./interfaces/Validator";
+import { Validator } from "../interfaces/Validator";
 
 class Cpf implements Validator {
     constructor(private cpf: string) { }
