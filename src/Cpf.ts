@@ -3,7 +3,7 @@ import { Validator } from "./interfaces/Validator";
 class Cpf implements Validator {
     constructor(private cpf: string) { }
 
-    validate(): boolean {
+    public validate(): boolean {
         const CPF_VALID_LENGTH = 11;
         this.eliminateSpecialCharacters();
         if (!this.cpf) return false;
