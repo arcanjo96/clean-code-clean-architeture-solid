@@ -1,5 +1,5 @@
-## Aula 1 - Refatoração código de validação de cpf
-Este projeto tem como objetivo refatorar um código ruim.
+## Aula 1 - Clean code and Refactoring
+Este projeto tem como objetivo utilizar as técnicas de clean code e refactoring.
 
 ## Instalando as dependências:
 ```
