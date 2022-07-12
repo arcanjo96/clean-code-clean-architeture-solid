@@ -1,6 +1,6 @@
-import { Coupon } from "../src/Coupon";
-import { Item } from "../src/Item";
-import { Order } from "../src/Order";
+import { Coupon } from "../../src/domain/entity/Coupon";
+import { Item } from "../../src/domain/entity/Item";
+import { Order } from "../../src/domain/entity/Order";
 
 describe('Order Tests', () => {
   const moccksCpf = {

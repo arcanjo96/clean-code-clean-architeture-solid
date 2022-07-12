@@ -1,6 +1,4 @@
-import { Validator } from "./Validator";
-
-class Cpf implements Validator {
+class Cpf {
   constructor(private cpf: string) {
     if (!this.validate()) throw new Error("Invalid cpf");
   }

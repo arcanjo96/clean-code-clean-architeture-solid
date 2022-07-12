@@ -1,5 +1,6 @@
 import { Coupon } from "./Coupon";
 import { Cpf } from "./Cpf";
+import { DefaultFreightCalculator } from "./DefaultFreightCalculator";
 import { FreightCalculator } from "./FreightCalculator";
 import { Item } from "./Item";
 import { OrderItem } from "./OrderItem";
@@ -10,14 +11,14 @@ class Order {
   coupon: Coupon | undefined;
   private freight: number;
 
-  constructor(cpf: string, readonly date: Date = new Date()) {
+  constructor(cpf: string, readonly date: Date = new Date(), private freightCalculator: FreightCalculator = new DefaultFreightCalculator()) {
     this.cpf = new Cpf(cpf);
     this.orderItems = [];
     this.freight = 0;
   }
 
   public addItem(item: Item, quantity: number): void {
-    this.freight += FreightCalculator.calculate(item) * quantity;
+    this.freight += this.freightCalculator.calculate(item) * quantity;
     this.orderItems.push(new OrderItem(item.id, item.price, quantity));
   }
 
@@ -37,6 +38,7 @@ class Order {
     if (this.coupon) {
       total -= this.coupon.calculateDiscount(total, this.date);
     }
+    total += this.getFreight();
     return total;
   }
 }
